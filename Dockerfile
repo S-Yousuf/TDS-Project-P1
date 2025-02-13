@@ -19,4 +19,4 @@ WORKDIR /app
 
 COPY app.py /app
 
-CMD ["uvicorn", "app:app", "--reload"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
