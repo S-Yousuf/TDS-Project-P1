@@ -8,7 +8,7 @@ import os
 import requests
 from scipy.spatial.distance import cosine
 from dotenv import load_dotenv
-import HTTPException
+from fastapi import HTTPException
 
 load_dotenv()
 
@@ -106,7 +106,7 @@ def A7(filename='/data/email.txt', output_file='/data/email-sender.txt'):
     with open(filename, 'r') as file:
         email_content = file.readlines()
 
-    sender_email = "sujay@gmail.com"
+    sender_email = "21f3000766@ds.study.iitm.ac.in"
     for line in email_content:
         if "From" == line[:4]:
             sender_email = (line.strip().split(" ")[-1]).replace("<", "").replace(">", "")
