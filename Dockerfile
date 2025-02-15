@@ -13,10 +13,14 @@ RUN sh /uv-installer.sh && rm /uv-installer.sh
 ENV PATH="/root/.local/bin/:$PATH"
 
 # Install required Python packages
-RUN pip install fastapi uvicorn requests
+RUN pip install fastapi uvicorn requests python-dateutil pandas db-sqlite3 scipy pybase64 python-dotenv httpx markdown duckdb
 
 WORKDIR /app
 
+RUN mkdir -p /data
+
 COPY app.py /app
+COPY taskA.py /app
+COPY taskB.py /app
 
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
